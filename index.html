@@ -1,2 +1,69 @@
 <!DOCTYPE html>
-<
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+    <h1>Rock Paper Scissor</h1>
+<p>choose your move and beat the computer</p>
+</header>
+<main>
+<section class="game-mode">
+    <h2>choose the game mode</h2>
+
+    <button id="five-rounds">5 Rounds</button>
+      <button id="seven-rounds">7 Rounds</button>
+</section>
+
+
+<section class="scoreboard">
+    <div class="score">
+        <h2>You</h2>
+        <p id="player-score">0</p>
+    </div>
+    <div class="round">
+         <p>Round</p>
+         <p id="current-round">0 / 5</p> 
+    </div>
+
+     <div class="score">
+        <h2>computer</h2>
+        <p id="computer-score">0</p>
+    </div>
+ 
+</section>
+
+<section class="game-area">
+    <h2>choose your move</h2>
+
+    <div class="choices">
+
+        <button class="choice" id="rock">
+            <span>Rock</span>
+        </button>
+    
+        <button class="choice" id="paper">
+            <span>Paper</span>
+        </button>
+    
+        <button class="choice" id="scissor">
+            <span>Scissor</span>
+        </button>
+    </div>
+</section>
+
+<section class="result">
+    <p id="player-choice">you chose:</p>
+        <p id="computer-choice">computer chose:</p>
+    <p id="round-result">the move :</p>
+
+</section>
+
+</main>
+</body>
+</html>
