@@ -33,9 +33,19 @@ const rockcomputer=document.getElementById("rock-computer");
 const papercomputer=document.getElementById("paper-computer");
 const scissorcomputer=document.getElementById("scissor-computer");
 
+const gameresult =document.getElementById("game-result");
+const playerScore =document.getElementById("player-score");
+const computerScore =document.getElementById("computer-score");
+
+
 
 let playerChoice;
 let computerChoice;
+
+
+let playerscore =0
+let computerscore =0
+
 
 function chooseComputerChoice(){
  computerChoice= choices[Math.floor(Math.random()*choices.length)];
@@ -47,8 +57,8 @@ function chooseComputerChoice(){
 rockbutton.addEventListener("click",function(){
     playerChoice = "rock";
 
-
     chooseComputerChoice();
+    checkWinner();
 
 
     rockhand.style.display="block"
@@ -63,8 +73,8 @@ rockbutton.addEventListener("click",function(){
 paperbutton.addEventListener("click",function(){
     playerChoice = "paper";
 
-    
     chooseComputerChoice();
+    checkWinner();
     rockhand.style.display="none"
     paperhand.style.display="block"
     scissorhand.style.display="none"
@@ -77,8 +87,8 @@ paperbutton.addEventListener("click",function(){
 scissorsbutton.addEventListener("click",function(){
      playerChoice = "scissors";
 
-     
     chooseComputerChoice();
+    checkWinner();
     rockhand.style.display="none"
     paperhand.style.display="none"
     scissorhand.style.display="block"
@@ -108,6 +118,53 @@ function showComputerChoice(){
 
 }
 
+
+
+function checkWinner(){
+    if(playerChoice=== computerChoice){
+        gameresult.textContent="Draw";
+        
+    }
+
+    if(playerChoice==="rock" && computerChoice === "scissors"){
+        gameresult.textContent = "You win";
+      playerScore = playerScore + 1;
+playerscore.textContent = playerScore;
+
+
+    }
+
+    if(playerChoice==="paper" && computerChoice === "scissors"){
+        gameresult.textContent = "You lose";
+    computerScore = computerScore + 1;
+computerscore.textContent = computerScore;
+    }
+
+     if(playerChoice==="paper" && computerChoice === "rock"){
+       gameresult.textContent = "You win";
+      playerScore = playerScore + 1;
+playerscore.textContent = playerScore;
+    }
+
+      if(playerChoice==="scissors" && computerChoice === "paper"){
+       gameresult.textContent = "You win";
+      playerScore = playerScore + 1;
+playerscore.textContent = playerScore;
+    }
+
+
+     if(playerChoice==="rock" && computerChoice === "paper"){
+       gameresult.textContent = "You lose";
+     computerScore = computerScore + 1;
+computerscore.textContent = computerScore;
+    }
+
+     if(playerChoice==="scissors" && computerChoice === "rock"){
+        gameresult.textContent = "You lose";
+ computerScore = computerScore + 1;
+computerscore.textContent = computerScore;
+    }
+}
 
 
 
