@@ -22,7 +22,7 @@ sevenroundsbutton.addEventListener("click",function(){
 
 const rockbutton = document.getElementById("rock");
 const paperbutton = document.getElementById("paper");
-const scissorsbutton = document.getElementById("scissors");
+const scissorsbutton = document.getElementById("scissor");
 const choices = ["rock", "paper", "scissors"];
 
 const rockhand=document.getElementById("rock-hand");
@@ -35,18 +35,27 @@ const scissorcomputer=document.getElementById("scissor-computer");
 
 
 let playerChoice;
-let computerChoice = choices[Math.floor(Math.random()*choices.length)];
+let computerChoice;
 
-console.log(computerChoice);
+function chooseComputerChoice(){
+ computerChoice= choices[Math.floor(Math.random()*choices.length)];
+
+}
+
+
 
 rockbutton.addEventListener("click",function(){
     playerChoice = "rock";
+
+
+    chooseComputerChoice();
+
 
     rockhand.style.display="block"
     paperhand.style.display="none"
     scissorhand.style.display="none"
 
-    
+    showComputerChoice();
 
     console.log("Rock selected");
 })
@@ -54,9 +63,13 @@ rockbutton.addEventListener("click",function(){
 paperbutton.addEventListener("click",function(){
     playerChoice = "paper";
 
+    
+    chooseComputerChoice();
     rockhand.style.display="none"
     paperhand.style.display="block"
     scissorhand.style.display="none"
+
+    showComputerChoice();
 
     console.log("paper selected");
 })
@@ -64,15 +77,19 @@ paperbutton.addEventListener("click",function(){
 scissorsbutton.addEventListener("click",function(){
      playerChoice = "scissors";
 
+     
+    chooseComputerChoice();
     rockhand.style.display="none"
     paperhand.style.display="none"
     scissorhand.style.display="block"
+
+     showComputerChoice();
     console.log("scissors selected");
 })
 
 
 
-function showcomputerChoice(){
+function showComputerChoice(){
     rockcomputer.style.display="none"
     papercomputer.style.display="none"
     scissorcomputer.style.display="none"
@@ -92,8 +109,6 @@ function showcomputerChoice(){
 }
 
 
-rockbutton.addEventListener("click",function(){
 
-})
 
 
