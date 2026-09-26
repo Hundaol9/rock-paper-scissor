@@ -8,11 +8,20 @@
 </head>
 
 <body>
+
+
+
+<div class="game-frame">
+
 <header>
-    <h1>Rock Paper Scissor</h1>
+    
+     <h1>Rock Paper Scissor</h1>
 <p>choose your move and beat the computer</p>
+ 
 </header>
-<main>
+   
+<main class="game-content"> 
+
 <section class="game-mode">
     <h2>choose the game mode</h2>
 
@@ -20,6 +29,46 @@
       <button id="seven-rounds">7 Rounds</button>
 </section>
 
+
+
+
+
+<section class="game-area">
+<div class="hand-display">
+   
+    <div class="hand-images">
+        <img src="images/rockh.png" alt="Rockh">
+        <img src="images/paperh.png" alt="paperh">
+         <img src="images/scissorh.png" alt="scissorh">
+    </div>
+    <span>VS</span>
+ 
+    <div class="computer-images">
+             <img src="images/rockc.png" alt="Rockc">
+             <img src="images/paperc.png" alt="paperc">
+             <img src="images/scissorc.png" alt="scissorc">
+    </div>
+</div>
+
+</section>
+    
+   
+
+    <div class="choices">
+ <h2>choose your move</h2>
+        <button class="choice" id="rock">
+            <span>Rock</span>
+        </button>
+    
+        <button class="choice" id="paper">
+            <span>Paper</span>
+        </button>
+    
+        <button class="choice" id="scissor">
+            <span>Scissor</span>
+        </button>
+    </div>
+</section>
 
 <section class="scoreboard">
     <div class="score">
@@ -35,35 +84,17 @@
         <h2>computer</h2>
         <p id="computer-score">0</p>
     </div>
- 
 </section>
 
-<section class="game-area">
-    <h2>choose your move</h2>
 
-    <div class="choices">
-
-        <button class="choice" id="rock">
-            <span>Rock</span>
+<section class="restart-section">
+     <button class="last" id="restart">
+            <span>Restart Game</span>
         </button>
-    
-        <button class="choice" id="paper">
-            <span>Paper</span>
-        </button>
-    
-        <button class="choice" id="scissor">
-            <span>Scissor</span>
-        </button>
-    </div>
 </section>
 
-<section class="result">
-    <p id="player-choice">you chose:</p>
-        <p id="computer-choice">computer chose:</p>
-    <p id="round-result">the move :</p>
-
-</section>
 
 </main>
+</div>
 </body>
 </html>
