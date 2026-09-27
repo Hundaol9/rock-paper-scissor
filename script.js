@@ -1,20 +1,25 @@
 const fiveroundsbutton=document.getElementById("five-rounds");
 const sevenroundsbutton=document.getElementById("seven-rounds");
-const currentround=document.getElementById("current-round");
+const presentRound = document.getElementById("present-round");
 
-let totalround=5;
 
+let totalRound = 5;
+let currentRound = 0;
 
 fiveroundsbutton.addEventListener("click",function(){
-    totalround = 5;
-    currentround.textContent="0/"+ totalround;
+    totalRound = 5;
+    currentRound=0;
+
+    presentRound.textContent="0/"+ totalround;
     console.log("5 rounds selected");
 
 });
 
 sevenroundsbutton.addEventListener("click",function(){
-    totalround=7;
-    currentround.textContent="0/"+ totalround;
+    totalRound=7;
+    currentRound=0;
+
+    presentRound.textContent="0/"+ totalround;
     console.log("7 rounds selected");
 
 });
@@ -34,17 +39,21 @@ const papercomputer=document.getElementById("paper-computer");
 const scissorcomputer=document.getElementById("scissor-computer");
 
 const gameresult =document.getElementById("game-result");
-const playerScore =document.getElementById("player-score");
-const computerScore =document.getElementById("computer-score");
+
+const playerscore = document.getElementById("player-score");
+const computerscore = document.getElementById("computer-score");
+
+const restartbutton =document.getElementById("restart");
 
 
+
+
+let playerScore = 0;
+let computerScore = 0;
 
 let playerChoice;
 let computerChoice;
 
-
-let playerscore =0
-let computerscore =0
 
 
 function chooseComputerChoice(){
@@ -52,9 +61,11 @@ function chooseComputerChoice(){
 
 }
 
-
-
 rockbutton.addEventListener("click",function(){
+     if (currentRound >= totalRound){
+        gameresult.textContent ="Game Over";
+        return
+    }
     playerChoice = "rock";
 
     chooseComputerChoice();
@@ -67,10 +78,16 @@ rockbutton.addEventListener("click",function(){
 
     showComputerChoice();
 
+   
+
     console.log("Rock selected");
 })
 
 paperbutton.addEventListener("click",function(){
+      if (currentRound >= totalRound){
+           gameresult.textContent ="Game Over";
+        return
+    }
     playerChoice = "paper";
 
     chooseComputerChoice();
@@ -85,7 +102,11 @@ paperbutton.addEventListener("click",function(){
 })
 
 scissorsbutton.addEventListener("click",function(){
-     playerChoice = "scissors";
+      if (currentRound >= totalRound){
+           gameresult.textContent ="Game Over";
+        return
+    }
+    playerChoice = "scissors";
 
     chooseComputerChoice();
     checkWinner();
@@ -93,7 +114,7 @@ scissorsbutton.addEventListener("click",function(){
     paperhand.style.display="none"
     scissorhand.style.display="block"
 
-     showComputerChoice();
+    showComputerChoice();
     console.log("scissors selected");
 })
 
@@ -128,44 +149,91 @@ function checkWinner(){
 
     if(playerChoice==="rock" && computerChoice === "scissors"){
         gameresult.textContent = "You win";
-      playerScore = playerScore + 1;
-playerscore.textContent = playerScore;
+        playerScore = playerScore + 1;
+        playerscore.textContent = playerScore;
 
 
     }
 
     if(playerChoice==="paper" && computerChoice === "scissors"){
         gameresult.textContent = "You lose";
-    computerScore = computerScore + 1;
-computerscore.textContent = computerScore;
+        computerScore = computerScore + 1;
+        computerscore.textContent = computerScore;
     }
 
      if(playerChoice==="paper" && computerChoice === "rock"){
        gameresult.textContent = "You win";
-      playerScore = playerScore + 1;
-playerscore.textContent = playerScore;
+       playerScore = playerScore + 1;
+       playerscore.textContent = playerScore;
     }
 
       if(playerChoice==="scissors" && computerChoice === "paper"){
        gameresult.textContent = "You win";
-      playerScore = playerScore + 1;
-playerscore.textContent = playerScore;
+       playerScore = playerScore + 1;
+       playerscore.textContent = playerScore;
     }
 
 
      if(playerChoice==="rock" && computerChoice === "paper"){
        gameresult.textContent = "You lose";
-     computerScore = computerScore + 1;
-computerscore.textContent = computerScore;
+       computerScore = computerScore + 1;
+       computerscore.textContent = computerScore;
     }
 
      if(playerChoice==="scissors" && computerChoice === "rock"){
         gameresult.textContent = "You lose";
- computerScore = computerScore + 1;
-computerscore.textContent = computerScore;
+        computerScore = computerScore + 1;
+        computerscore.textContent = computerScore;
+    }
+
+  
+currentRound = currentRound + 1;
+
+presentRound.textContent= currentRound +"/"+ totalRound;
+
+if (currentRound === totalRound){
+    checkGameWinner();
+}
+}
+
+function checkGameWinner(){
+    if (playerScore > computerScore){
+        gameresult.textContent ="You Win the Game!";
+    }
+
+     if (computerScore > playerScore){
+        gameresult.textContent ="You Win the Game!";
+    }
+      if (computerScore === playerScore){
+        gameresult.textContent ="Game Draw!";
     }
 }
 
+restartbutton.addEventListener("click", function(){
+
+    playerScore = 0;
+    computerScore = 0;
+
+    playerscore.textContent = playerScore;
+    computerscore.textContent = computerScore;
+
+    currentRound = 0;
+
+    presentRound.textContent = "0 / " + totalRound;
+
+    gameresult.textContent = "Choose your move!";
+
+
+    rockhand.style.display="block";
+    paperhand.style.display="none";
+    scissorhand.style.display="none";
+
+
+    rockcomputer.style.display="block";
+    papercomputer.style.display="none";
+    scissorcomputer.style.display="none";
+
+});
 
 
 
