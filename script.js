@@ -7,10 +7,11 @@ let totalRound = 5;
 let currentRound = 0;
 
 fiveroundsbutton.addEventListener("click",function(){
+
     totalRound = 5;
     currentRound=0;
 
-    presentRound.textContent="0/"+ totalround;
+    presentRound.textContent="0/"+ totalRound;
     console.log("5 rounds selected");
 
 });
@@ -19,7 +20,7 @@ sevenroundsbutton.addEventListener("click",function(){
     totalRound=7;
     currentRound=0;
 
-    presentRound.textContent="0/"+ totalround;
+    presentRound.textContent="0/"+ totalRound;
     console.log("7 rounds selected");
 
 });
@@ -202,7 +203,7 @@ function checkGameWinner(){
     }
 
      if (computerScore > playerScore){
-        gameresult.textContent ="You Win the Game!";
+        gameresult.textContent ="Computer Wins the Game!";
     }
       if (computerScore === playerScore){
         gameresult.textContent ="Game Draw!";

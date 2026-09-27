@@ -55,6 +55,7 @@ header p{
 
 
 .game-frame{
+    position: relative;
     width:95%;
     max-width:1300px;
     margin: 0 auto;
@@ -439,3 +440,51 @@ transform: rotate(90deg) scaleX(-1);
     background: rgba(242, 87, 208, 0.2);
 }
 
+.music-player{
+    position: absolute;
+    right: 12px;
+    top:70%;
+    padding: 10px;
+    border: 1px solid #31dfff;
+    border-radius: 15px;
+    width: 190px;
+    height: 200px;
+    padding: 18px;
+    border: 1px solid rgba(49, 223, 255, 0.7);
+    border-radius: 15px;
+
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(0, 220, 255, 0.15),
+            transparent 60%
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(255, 0, 170, 0.15),
+            transparent 60%
+        ),
+        rgba(7, 7, 19, 0.8);
+
+    box-shadow:
+        0 0 10px rgba(0, 220, 255, 0.4),
+        0 0 25px rgba(255, 0, 170, 0.2),
+        inset 0 0 20px rgba(0, 220, 255, 0.08);
+}
+
+
+.music-player audio {
+    width: 280px;
+    height: 45px;
+    background: transparent;
+    border: 1px solid #31dfff;
+    border-radius: 10px;
+    
+      box-shadow:
+        0 0 10px rgba(0, 220, 255, 0.4),
+        0 0 20px rgba(255, 0, 170, 0.2);
+}
+
+.music-player audio::-webkit-media-controls-panel {
+    background: transparent;
+}
