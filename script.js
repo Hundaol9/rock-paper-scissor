@@ -195,7 +195,7 @@ presentRound.textContent= currentRound +"/"+ totalRound;
 if (currentRound === totalRound){
     checkGameWinner();
 }
-}
+
 
 function checkGameWinner(){
     if (playerScore > computerScore){
@@ -208,6 +208,8 @@ function checkGameWinner(){
       if (computerScore === playerScore){
         gameresult.textContent ="Game Draw!";
     }
+}
+
 }
 
 restartbutton.addEventListener("click", function(){
